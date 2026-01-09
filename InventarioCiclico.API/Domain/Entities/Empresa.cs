@@ -3,19 +3,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InventarioCiclico.API.Domain.Entities;
 
-[Table("Empresas")]
+[Table("EMPRESAS", Schema ="JBS")]
 public class Empresa
 {
     [Key]
     [Required]
-    public int EmpresaId { get; set; }
+    [Column("EMPRESAID")]
+    public string EmpresaId { get; set; }
     
     [Required]
+    [Column("RAZAOSOCIAL")]
     public string RazaoSocial { get; set; }
-    
+    [Column("CGC")]
     public string CGC { get; set; }
-    
+    [Column("ENDERECO")]
     public string Endereco { get; set; }
-    
+
+    [Column("TELEFONE")]
     public string Telefone { get; set; }
 }

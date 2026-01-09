@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InventarioCiclico.API</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "P:InventarioCiclico.API.Application.Dtos.EmpresaDto.EmpresaId" -->
+        <!-- Badly formed XML comment ignored for member "P:InventarioCiclico.API.Application.Dtos.EmpresaDto.RazaoSocial" -->
+        <!-- Badly formed XML comment ignored for member "P:InventarioCiclico.API.Application.Dtos.EmpresaDto.CGC" -->
+        <member name="P:InventarioCiclico.API.Application.Dtos.EmpresaDto.Endereco">
+            <example>Av. Imperatriz Leopoldina</example>
+        </member>
+        <member name="P:InventarioCiclico.API.Application.Dtos.EmpresaDto.Telefone">
+            <example>(11) 99999-9999</example>
+        </member>
+        <member name="M:InventarioCiclico.API.Controllers.EmpresaController.ListarEmpresas(System.Threading.CancellationToken)">
+            <summary>
+            Retorna a lista de empresas cadastradas.
+            </summary>
+            <returns>Lista de empresas</returns>
+        </member>
+    </members>
+</doc>

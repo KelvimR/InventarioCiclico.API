@@ -5,9 +5,9 @@ namespace InventarioCiclico.API.Application.Interfaces.Repositories;
 
 public interface IEmpresaRepository
 {
-    Task<List<Empresa>> ObterEmpresasAsync();
+    Task<List<Empresa>> ObterEmpresasAsync(CancellationToken cancellationToken);
 
-    Task<Empresa?> ObterEmpresaPorIdAsync(int id);
+    Task<Empresa?> ObterEmpresaPorIdAsync(string id);
 
-    Task<bool> InsereEmpresaAsync(Empresa empresa);
+    Task InserirEmpresasAsync(Empresa empresa);
 }

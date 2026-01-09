@@ -1,4 +1,5 @@
-﻿using InventarioCiclico.API.Exceptions;
+﻿using InventarioCiclico.API.Domain.Exceptions;
+using InventarioCiclico.API.Exceptions;
 
 namespace InventarioCiclico.API.Middlewares;
 

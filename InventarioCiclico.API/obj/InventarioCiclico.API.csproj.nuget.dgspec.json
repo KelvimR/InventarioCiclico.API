@@ -53,7 +53,7 @@
           "dependencies": {
             "Oracle.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.23.26000, )"
+              "version": "[7.21.13, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

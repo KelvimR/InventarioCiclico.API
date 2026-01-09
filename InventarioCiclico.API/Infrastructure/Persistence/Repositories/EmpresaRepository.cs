@@ -1,6 +1,7 @@
 ﻿using InventarioCiclico.API.Application.Dtos;
 using InventarioCiclico.API.Application.Interfaces.Repositories;
 using InventarioCiclico.API.Domain.Entities;
+using InventarioCiclico.API.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace InventarioCiclico.API.Infrastructure.Persistence.Repositories;
@@ -15,25 +16,23 @@ public class EmpresaRepository : IEmpresaRepository
         _context = context;
     }
 
-    public async Task<List<Empresa>> ObterEmpresasAsync()
+    public async Task<List<Empresa>> ObterEmpresasAsync(CancellationToken cancellationToken = default)
     {
         return await _context.Empresas
             .AsNoTracking()
-            .ToListAsync();
+            .ToListAsync();        
     }
 
-    public async Task<Empresa?> ObterEmpresaPorIdAsync(int id)
+    public async Task<Empresa?> ObterEmpresaPorIdAsync(string id)
     {
         return await _context.Empresas
             .AsNoTracking()
             .FirstOrDefaultAsync(e => e.EmpresaId == id);
     }
 
-    public async Task<bool> InsereEmpresaAsync(Empresa empresa)
+    public async Task InserirEmpresasAsync(Empresa empresa)
     {
         _context.Add(empresa);
-        var linhasAfetadas = await _context.SaveChangesAsync();
-
-        return linhasAfetadas > 0;
+        await _context.SaveChangesAsync();
     }
 }
