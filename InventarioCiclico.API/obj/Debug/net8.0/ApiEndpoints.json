@@ -23,5 +23,36 @@
         "StatusCode": 404
       }
     ]
+  },
+  {
+    "ContainingType": "InventarioCiclico.API.Controllers.EmpresaController",
+    "Method": "ObterEmpresaPorIdAsync",
+    "RelativePath": "api/v1/empresas/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ]
   }
 ]

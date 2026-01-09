@@ -34,4 +34,29 @@ public class EmpresaService
         }).ToList();
 
     }
+
+    public async Task<EmpresaDto> ObterEmpresaPorIdAsync (string id, CancellationToken cancellationToken)
+    {
+        var obtemEmpresa = await _repository.ObterEmpresaPorIdAsync(id, cancellationToken);
+        if (obtemEmpresa == null)
+            throw new BusinessException($"Empresa {id} não localizada na base.");
+
+        var empresaDto = new EmpresaDto
+        {
+            EmpresaId = obtemEmpresa.EmpresaId,
+            RazaoSocial = obtemEmpresa.RazaoSocial,
+            CGC = obtemEmpresa.CGC,
+            Endereco = obtemEmpresa.Endereco,
+            Telefone = obtemEmpresa.Telefone
+        };
+
+        return empresaDto;
+
+    }
+
+    public async Task<InsereEmpresaDto> CriarEmpresaAsync(CancellationToken cancellationToken)
+    {
+        return null; 
+    }
+
 }

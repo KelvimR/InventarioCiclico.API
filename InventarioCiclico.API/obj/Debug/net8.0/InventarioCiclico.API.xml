@@ -18,6 +18,15 @@
             Retorna a lista de empresas cadastradas.
             </summary>
             <returns>Lista de empresas</returns>
+            <param name="cancellationToken">Token para cancelamento da requisição.</param>
+        </member>
+        <member name="M:InventarioCiclico.API.Controllers.EmpresaController.ObterEmpresaPorIdAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Retorna uma empresa pelo ID informado.
+            </summary>
+            <returns>Retorna a empresa encontrada ou 404 se não existir.</returns>
+            <param name="id">ID da empresa a ser consultada.</param>
+            <param name="cancellationToken">Token para cancelamento da requisição.</param>
         </member>
     </members>
 </doc>

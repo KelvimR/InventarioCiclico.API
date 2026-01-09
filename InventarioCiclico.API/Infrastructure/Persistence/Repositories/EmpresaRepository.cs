@@ -20,14 +20,17 @@ public class EmpresaRepository : IEmpresaRepository
     {
         return await _context.Empresas
             .AsNoTracking()
-            .ToListAsync();        
+            .ToListAsync(cancellationToken);        
     }
 
-    public async Task<Empresa?> ObterEmpresaPorIdAsync(string id)
+    public async Task<Empresa?> ObterEmpresaPorIdAsync(string id, CancellationToken cancellationToken = default)
     {
-        return await _context.Empresas
-            .AsNoTracking()
-            .FirstOrDefaultAsync(e => e.EmpresaId == id);
+        var empresas = await _context.Empresas
+         .AsNoTracking()
+         .Where(e => e.EmpresaId == id)
+         .ToListAsync(cancellationToken);
+
+        return empresas.FirstOrDefault();
     }
 
     public async Task InserirEmpresasAsync(Empresa empresa)
