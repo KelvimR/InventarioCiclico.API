@@ -28,5 +28,23 @@
             <param name="id">ID da empresa a ser consultada.</param>
             <param name="cancellationToken">Token para cancelamento da requisição.</param>
         </member>
+        <member name="M:InventarioCiclico.API.Controllers.EmpresaController.InserirEmpresaAsync(InventarioCiclico.API.Application.Dtos.InsereEmpresaDto,System.Threading.CancellationToken)">
+            <summary>
+            Cria uma nova empresa no sistema.
+            </summary>
+            <param name="dto">
+            Objeto contendo os dados necessários para o cadastro da empresa.
+            </param>
+            <param name="cancellationToken">
+            Token para cancelamento da requisição.
+            </param>
+            <returns>
+            Retorna <see cref="T:Microsoft.AspNetCore.Mvc.CreatedAtActionResult"/> quando a empresa é criada com sucesso.
+            </returns>
+            <response code="201">Empresa criada com sucesso.</response>
+            <response code="400">Dados inválidos enviados na requisição.</response>
+            <response code="409">Empresa já cadastrada na base.</response>
+            <response code="500">Erro interno no servidor.</response>
+        </member>
     </members>
 </doc>

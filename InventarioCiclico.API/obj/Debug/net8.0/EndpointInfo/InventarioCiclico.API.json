@@ -12,6 +12,7 @@
           "Empresa"
         ],
         "summary": "Retorna a lista de empresas cadastradas.",
+        "operationId": "ListarEmpresas",
         "responses": {
           "200": {
             "description": "OK"
@@ -37,6 +38,50 @@
             }
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Empresa"
+        ],
+        "summary": "Cria uma nova empresa no sistema.",
+        "operationId": "InserirEmpresa",
+        "requestBody": {
+          "description": "Objeto contendo os dados necessários para o cadastro da empresa.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsereEmpresaDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsereEmpresaDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/InsereEmpresaDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Empresa criada com sucesso."
+          },
+          "400": {
+            "description": "Dados inválidos enviados na requisição."
+          },
+          "409": {
+            "description": "Empresa já cadastrada na base."
+          },
+          "500": {
+            "description": "Erro interno no servidor."
+          }
+        }
       }
     },
     "/api/v1/empresas/{id}": {
@@ -45,6 +90,7 @@
           "Empresa"
         ],
         "summary": "Retorna uma empresa pelo ID informado.",
+        "operationId": "ObterEmpresaPorId",
         "parameters": [
           {
             "name": "id",
@@ -86,6 +132,32 @@
   },
   "components": {
     "schemas": {
+      "InsereEmpresaDto": {
+        "type": "object",
+        "properties": {
+          "empresaId": {
+            "type": "string",
+            "nullable": true
+          },
+          "razaoSocial": {
+            "type": "string",
+            "nullable": true
+          },
+          "cgc": {
+            "type": "string",
+            "nullable": true
+          },
+          "endereco": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefone": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ProblemDetails": {
         "type": "object",
         "properties": {

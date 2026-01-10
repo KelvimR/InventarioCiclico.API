@@ -9,5 +9,5 @@ public interface IEmpresaRepository
 
     Task<Empresa?> ObterEmpresaPorIdAsync(string id, CancellationToken cancellationToken);
 
-    Task InserirEmpresasAsync(Empresa empresa);
+    Task InserirEmpresasAsync(Empresa empresa, CancellationToken cancellationToken);
 }

@@ -22,7 +22,25 @@
         ],
         "StatusCode": 404
       }
-    ]
+    ],
+    "EndpointName": "ListarEmpresas"
+  },
+  {
+    "ContainingType": "InventarioCiclico.API.Controllers.EmpresaController",
+    "Method": "InserirEmpresaAsync",
+    "RelativePath": "api/v1/empresas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "InventarioCiclico.API.Application.Dtos.InsereEmpresaDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "InserirEmpresa"
   },
   {
     "ContainingType": "InventarioCiclico.API.Controllers.EmpresaController",
@@ -53,6 +71,7 @@
         ],
         "StatusCode": 404
       }
-    ]
+    ],
+    "EndpointName": "ObterEmpresaPorId"
   }
 ]

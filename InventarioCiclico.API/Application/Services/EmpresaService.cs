@@ -54,9 +54,23 @@ public class EmpresaService
 
     }
 
-    public async Task<InsereEmpresaDto> CriarEmpresaAsync(CancellationToken cancellationToken)
+    public async Task CriarEmpresaAsync(InsereEmpresaDto dto, CancellationToken cancellationToken)
     {
-        return null; 
+        var verificaEmpresa = await _repository.ObterEmpresaPorIdAsync(dto.EmpresaId, cancellationToken);
+        if (verificaEmpresa != null)
+            throw new BusinessException($"Empresa {dto.EmpresaId} já está cadastrada na base. Favor verificar! ");
+
+        var empresa = new Empresa
+        {
+            EmpresaId = dto.EmpresaId,
+            CGC = dto.CGC,
+            Endereco = dto.Endereco,
+            Telefone = dto.Telefone,
+            RazaoSocial = dto.RazaoSocial
+        };
+
+        await _repository.InserirEmpresasAsync(empresa, cancellationToken);
+
     }
 
 }
