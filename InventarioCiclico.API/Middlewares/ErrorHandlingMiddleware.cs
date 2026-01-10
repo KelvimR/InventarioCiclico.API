@@ -1,5 +1,6 @@
 ﻿using InventarioCiclico.API.Domain.Exceptions;
 using InventarioCiclico.API.Exceptions;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InventarioCiclico.API.Middlewares;
 
@@ -18,25 +19,56 @@ public class ErrorHandlingMiddleware
         {
             await _next(context);
         }
-        catch (NotFoundException ex)
+        catch (Exception ex) when (!context.Response.HasStarted)
         {
-            context.Response.StatusCode = StatusCodes.Status404NotFound;
-            await context.Response.WriteAsJsonAsync(new { error = ex.Message });
-        }
-        catch (ValidationException ex)
-        {
-            context.Response.StatusCode = StatusCodes.Status400BadRequest;
-            await context.Response.WriteAsJsonAsync(new { errors = ex.Errors });
-        }
-        catch (BusinessException ex)
-        {
-            context.Response.StatusCode = StatusCodes.Status400BadRequest;
-            await context.Response.WriteAsJsonAsync(new { error = ex.Message });
-        }
-        catch (Exception)
-        {
-            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-            await context.Response.WriteAsJsonAsync(new { error = "Erro interno" });
+            context.Response.ContentType = "application/problem+json";
+
+            ProblemDetails problem;
+
+            switch (ex)
+            {
+                case NotFoundException:
+                    problem = new ProblemDetails
+                    {
+                        Status = StatusCodes.Status404NotFound,
+                        Title = "Recurso não encontrado",
+                        Detail = ex.Message
+                    };
+                    break;
+
+                case ValidationException validationEx:
+                    problem = new ValidationProblemDetails(
+                        new Dictionary<string, string[]>
+                        {
+                            { "Errors", validationEx.Errors.ToArray() }
+                        })
+                    {
+                        Status = StatusCodes.Status400BadRequest,
+                        Title = "Erro de validação"
+                    };
+                    break;
+
+                case BusinessException:
+                    problem = new ProblemDetails
+                    {
+                        Status = StatusCodes.Status409Conflict,
+                        Title = "Conflito de regra de negócio",
+                        Detail = ex.Message
+                    };
+                    break;
+
+                default:
+                    problem = new ProblemDetails
+                    {
+                        Status = StatusCodes.Status500InternalServerError,
+                        Title = "Erro interno",
+                        Detail = "Ocorreu um erro inesperado."
+                    };
+                    break;
+            }
+
+            context.Response.StatusCode = problem.Status ?? StatusCodes.Status500InternalServerError;
+            await context.Response.WriteAsJsonAsync(problem);
         }
     }
 }

@@ -2,6 +2,7 @@ using InventarioCiclico.API.Application.Interfaces.Repositories;
 using InventarioCiclico.API.Application.Services;
 using InventarioCiclico.API.Infrastructure.Persistence;
 using InventarioCiclico.API.Infrastructure.Persistence.Repositories;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Reflection;

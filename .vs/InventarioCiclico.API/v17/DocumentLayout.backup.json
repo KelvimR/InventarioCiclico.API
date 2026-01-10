@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|c:\\fontes\\projetos_kelvim\\inventariociclico.api\\inventariociclico.api\\infrastructure\\persistence\\repositories\\empresarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|solutionrelative:inventariociclico.api\\infrastructure\\persistence\\repositories\\empresarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|c:\\fontes\\projetos_kelvim\\inventariociclico.api\\inventariociclico.api\\controllers\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|solutionrelative:inventariociclico.api\\controllers\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,8 +11,12 @@
       "RelativeMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|solutionrelative:inventariociclico.api\\application\\services\\empresaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|c:\\fontes\\projetos_kelvim\\inventariociclico.api\\inventariociclico.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|solutionrelative:inventariociclico.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|c:\\fontes\\projetos_kelvim\\inventariociclico.api\\inventariociclico.api\\infrastructure\\persistence\\repositories\\empresarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|solutionrelative:inventariociclico.api\\infrastructure\\persistence\\repositories\\empresarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|c:\\fontes\\projetos_kelvim\\inventariociclico.api\\inventariociclico.api\\application\\interfaces\\repositories\\iempresarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|solutionrelative:inventariociclico.api\\application\\interfaces\\repositories\\iempresarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "IEmpresaRepository.cs",
+              "DocumentMoniker": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\InventarioCiclico.API\\Application\\Interfaces\\Repositories\\IEmpresaRepository.cs",
+              "RelativeDocumentMoniker": "InventarioCiclico.API\\Application\\Interfaces\\Repositories\\IEmpresaRepository.cs",
+              "ToolTip": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\InventarioCiclico.API\\Application\\Interfaces\\Repositories\\IEmpresaRepository.cs",
+              "RelativeToolTip": "InventarioCiclico.API\\Application\\Interfaces\\Repositories\\IEmpresaRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T22:11:55.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "EmpresaRepository.cs",
               "DocumentMoniker": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\InventarioCiclico.API\\Infrastructure\\Persistence\\Repositories\\EmpresaRepository.cs",
               "RelativeDocumentMoniker": "InventarioCiclico.API\\Infrastructure\\Persistence\\Repositories\\EmpresaRepository.cs",
               "ToolTip": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\InventarioCiclico.API\\Infrastructure\\Persistence\\Repositories\\EmpresaRepository.cs",
               "RelativeToolTip": "InventarioCiclico.API\\Infrastructure\\Persistence\\Repositories\\EmpresaRepository.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAswBgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA4wCcAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-09T21:15:47.952Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\InventarioCiclico.API\\appsettings.json",
-              "RelativeDocumentMoniker": "InventarioCiclico.API\\appsettings.json",
-              "ToolTip": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\InventarioCiclico.API\\appsettings.json",
-              "RelativeToolTip": "InventarioCiclico.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-01-09T21:12:39.625Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "EmpresaController.cs",
               "DocumentMoniker": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\InventarioCiclico.API\\Controllers\\EmpresaController.cs",
               "RelativeDocumentMoniker": "InventarioCiclico.API\\Controllers\\EmpresaController.cs",
               "ToolTip": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\InventarioCiclico.API\\Controllers\\EmpresaController.cs",
               "RelativeToolTip": "InventarioCiclico.API\\Controllers\\EmpresaController.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAIwCkAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAA0wDYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-09T21:03:09.333Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "EmpresaService.cs",
               "DocumentMoniker": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\InventarioCiclico.API\\Application\\Services\\EmpresaService.cs",
               "RelativeDocumentMoniker": "InventarioCiclico.API\\Application\\Services\\EmpresaService.cs",
               "ToolTip": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\InventarioCiclico.API\\Application\\Services\\EmpresaService.cs",
               "RelativeToolTip": "InventarioCiclico.API\\Application\\Services\\EmpresaService.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAiwCcAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAuwEkAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-09T20:46:51.924Z",
               "EditorCaption": ""

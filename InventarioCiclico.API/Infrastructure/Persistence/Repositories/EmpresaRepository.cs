@@ -33,9 +33,9 @@ public class EmpresaRepository : IEmpresaRepository
         return empresas.FirstOrDefault();
     }
 
-    public async Task InserirEmpresasAsync(Empresa empresa)
+    public async Task InserirEmpresasAsync(Empresa empresa, CancellationToken cancellationToken = default)
     {
         _context.Add(empresa);
-        await _context.SaveChangesAsync();
+        await _context.SaveChangesAsync(cancellationToken);
     }
 }
