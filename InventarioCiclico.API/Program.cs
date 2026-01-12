@@ -1,7 +1,9 @@
 using InventarioCiclico.API.Application.Interfaces.Repositories;
+using InventarioCiclico.API.Application.Interfaces.Services;
 using InventarioCiclico.API.Application.Services;
 using InventarioCiclico.API.Infrastructure.Persistence;
 using InventarioCiclico.API.Infrastructure.Persistence.Repositories;
+using InventarioCiclico.API.Middlewares;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -11,7 +13,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
-        options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection"))
+        options.UseOracle(builder.Configuration.GetConnectionString("DefaultConnection"),
+             oracleOptions =>
+             {
+                 oracleOptions.UseOracleSQLCompatibility("11");
+             })
         .EnableSensitiveDataLogging()
         .LogTo(Console.WriteLine, LogLevel.Information));
 
@@ -40,8 +46,9 @@ builder.Services.AddSwaggerGen(c =>
 
 
 builder.Services.AddScoped<EmpresaService>();
+builder.Services.AddScoped<ILogService, LogService>();
 builder.Services.AddScoped<IEmpresaRepository, EmpresaRepository>();
-
+builder.Services.AddScoped<ILogRepository, LogRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -53,8 +60,14 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    //app.UseDeveloperExceptionPage();
+    app.UseMiddleware<ErrorHandlingMiddleware>();
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+else
+{
+    app.UseMiddleware<ErrorHandlingMiddleware>();
 }
 
 app.UseHttpsRedirection();

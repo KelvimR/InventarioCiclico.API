@@ -38,4 +38,31 @@ public class EmpresaRepository : IEmpresaRepository
         _context.Add(empresa);
         await _context.SaveChangesAsync(cancellationToken);
     }
+
+    public async Task RemoverEmpresaAsync(string id, CancellationToken cancellationToken)
+    {
+        var empresas = await _context.Empresas.FirstOrDefaultAsync(e => e.EmpresaId == id, cancellationToken);
+        if (empresas == null)
+            return;
+
+        _context.Empresas.Remove(empresas);
+        await _context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task AtualizarEmpresaAsync(AtualizaEmpresaDto dto, CancellationToken cancellationToken)
+    {
+        var empresas = await _context.Empresas.FirstOrDefaultAsync(e => e.EmpresaId == dto.EmpresaId, cancellationToken);
+        if (empresas == null) 
+            return;
+
+        empresas.EmpresaId = dto.EmpresaId;
+        empresas.RazaoSocial = dto.RazaoSocial;
+        empresas.Endereco = dto.Endereco;
+        empresas.CGC = dto.CGC;
+        empresas.Telefone = dto.Telefone;
+        
+        _context.Empresas.Update(empresas);
+        await _context.SaveChangesAsync(cancellationToken);
+
+    }
 }

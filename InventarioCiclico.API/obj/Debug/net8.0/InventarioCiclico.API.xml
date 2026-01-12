@@ -4,15 +4,6 @@
         <name>InventarioCiclico.API</name>
     </assembly>
     <members>
-        <!-- Badly formed XML comment ignored for member "P:InventarioCiclico.API.Application.Dtos.EmpresaDto.EmpresaId" -->
-        <!-- Badly formed XML comment ignored for member "P:InventarioCiclico.API.Application.Dtos.EmpresaDto.RazaoSocial" -->
-        <!-- Badly formed XML comment ignored for member "P:InventarioCiclico.API.Application.Dtos.EmpresaDto.CGC" -->
-        <member name="P:InventarioCiclico.API.Application.Dtos.EmpresaDto.Endereco">
-            <example>Av. Imperatriz Leopoldina</example>
-        </member>
-        <member name="P:InventarioCiclico.API.Application.Dtos.EmpresaDto.Telefone">
-            <example>(11) 99999-9999</example>
-        </member>
         <member name="M:InventarioCiclico.API.Controllers.EmpresaController.ListarEmpresas(System.Threading.CancellationToken)">
             <summary>
             Retorna a lista de empresas cadastradas.
@@ -44,6 +35,30 @@
             <response code="201">Empresa criada com sucesso.</response>
             <response code="400">Dados inválidos enviados na requisição.</response>
             <response code="409">Empresa já cadastrada na base.</response>
+            <response code="500">Erro interno no servidor.</response>
+        </member>
+        <member name="M:InventarioCiclico.API.Controllers.EmpresaController.RemoveEmpresaAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Remove o cadastro de uma empresa da base de dados.
+            </summary>    
+            <param name="id">ID da empresa a ser removida.</param>
+            <param name="usuario">Usuário responsável por remover a empresa da base.</param>
+            <param name="cancellationToken">Token para cancelamento da requisição.</param>
+            <response code="204">Empresa removida com sucesso.</response>
+            <response code="404">Empresa não encontrada.</response>
+        </member>
+        <member name="M:InventarioCiclico.API.Controllers.EmpresaController.AtualizaEmpresa(InventarioCiclico.API.Application.Dtos.AtualizaEmpresaDto,System.Threading.CancellationToken)">
+            <summary>
+            Atualiza o cadastro de uma empresa da base de dados.
+            </summary>
+            <param name="dto">
+            Objeto contendo os dados necessários para o atualização da empresa.
+            </param>
+            <param name="cancellationToken">
+            Token para cancelamento da requisição.
+            </param>
+            <response code="204">Empresa atualizada com sucesso.</response>    
+            <response code="404">Empresa não localizada na base.</response>
             <response code="500">Erro interno no servidor.</response>
         </member>
     </members>

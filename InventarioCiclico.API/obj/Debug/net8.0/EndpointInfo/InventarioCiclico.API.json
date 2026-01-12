@@ -66,17 +66,103 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "201": {
             "description": "Empresa criada com sucesso."
           },
           "400": {
-            "description": "Dados inválidos enviados na requisição."
+            "description": "Dados inválidos enviados na requisição.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           },
           "409": {
-            "description": "Empresa já cadastrada na base."
+            "description": "Empresa já cadastrada na base.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno no servidor."
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Empresa"
+        ],
+        "summary": "Atualiza o cadastro de uma empresa da base de dados.",
+        "operationId": "AtualizarEmpresa",
+        "requestBody": {
+          "description": "Objeto contendo os dados necessários para o atualização da empresa.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizaEmpresaDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizaEmpresaDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AtualizaEmpresaDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Empresa atualizada com sucesso."
+          },
+          "404": {
+            "description": "Empresa não localizada na base.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           },
           "500": {
             "description": "Erro interno no servidor."
@@ -128,10 +214,94 @@
           }
         }
       }
+    },
+    "/api/v1/empresas/{id}/{usuario}": {
+      "delete": {
+        "tags": [
+          "Empresa"
+        ],
+        "summary": "Remove o cadastro de uma empresa da base de dados.",
+        "operationId": "RemoverEmpresa",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID da empresa a ser removida.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "usuario",
+            "in": "path",
+            "description": "Usuário responsável por remover a empresa da base.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Empresa removida com sucesso."
+          },
+          "404": {
+            "description": "Empresa não encontrada.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
+      "AtualizaEmpresaDto": {
+        "type": "object",
+        "properties": {
+          "empresaId": {
+            "type": "string",
+            "nullable": true
+          },
+          "razaoSocial": {
+            "type": "string",
+            "nullable": true
+          },
+          "cgc": {
+            "type": "string",
+            "nullable": true
+          },
+          "endereco": {
+            "type": "string",
+            "nullable": true
+          },
+          "telefone": {
+            "type": "string",
+            "nullable": true
+          },
+          "usuario": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "InsereEmpresaDto": {
         "type": "object",
         "properties": {
@@ -152,6 +322,10 @@
             "nullable": true
           },
           "telefone": {
+            "type": "string",
+            "nullable": true
+          },
+          "usuario": {
             "type": "string",
             "nullable": true
           }
