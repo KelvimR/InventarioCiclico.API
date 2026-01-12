@@ -11,12 +11,24 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<Empresa> Empresas { get; set; }
+    public DbSet<Log> Log { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 
         //Schema do banco
         modelBuilder.HasDefaultSchema("JBS");
+       
+        modelBuilder.Entity<Log>(entity =>
+        {
+            entity.Property(e => e.Sequencia)
+                .HasColumnName("SEQUENCIA")
+                .ValueGeneratedNever();
+            
+            entity.HasKey(e => e.Sequencia);
+
+        });
+
         base.OnModelCreating(modelBuilder);
     }
     

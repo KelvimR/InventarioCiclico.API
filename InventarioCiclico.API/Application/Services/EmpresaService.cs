@@ -1,5 +1,6 @@
 ﻿using InventarioCiclico.API.Application.Dtos;
 using InventarioCiclico.API.Application.Interfaces.Repositories;
+using InventarioCiclico.API.Application.Interfaces.Services;
 using InventarioCiclico.API.Domain.Entities;
 using InventarioCiclico.API.Domain.Exceptions;
 using InventarioCiclico.API.Exceptions;
@@ -10,16 +11,16 @@ namespace InventarioCiclico.API.Application.Services;
 public class EmpresaService
 {
     private readonly IEmpresaRepository _repository;
+    private readonly ILogService _logService;
 
-    public EmpresaService(IEmpresaRepository repository)
+    public EmpresaService(IEmpresaRepository repository, ILogService logService)
     {
         _repository = repository;
+        _logService = logService;
     }
 
     public async Task<List<EmpresaDto>> ObterEmpresasAsync(CancellationToken cancellationToken)
     {
-        //Recebo entidade e retorno dto
-        //Garantindo a seguranca da base
         var empresas = await _repository.ObterEmpresasAsync(cancellationToken);
         if (!empresas.Any())
             throw new BusinessException("Nenhuma empresa encontrada.");
@@ -39,7 +40,7 @@ public class EmpresaService
     {
         var obtemEmpresa = await _repository.ObterEmpresaPorIdAsync(id, cancellationToken);
         if (obtemEmpresa == null)
-            throw new BusinessException($"Empresa {id} não localizada na base.");
+            throw new NotFoundException($"Empresa {id} não localizada na base.", id);
 
         var empresaDto = new EmpresaDto
         {
@@ -71,6 +72,46 @@ public class EmpresaService
 
         await _repository.InserirEmpresasAsync(empresa, cancellationToken);
 
+        await _logService.InserirLogAsync(new Log
+        {
+            EmpresaId = dto.EmpresaId,
+            Operacao = $"Criação da empresa {dto.EmpresaId}.",
+            Usuario = dto.Usuario
+        }, cancellationToken);
+
     }
 
+    public async Task RemoverEmpresaAsync(string id, string usuario, CancellationToken cancellationToken)
+    {
+        var verificaEmpresa = await _repository.ObterEmpresaPorIdAsync(id, cancellationToken);
+        if (verificaEmpresa == null)
+            throw new NotFoundException($"Empresa {id} não localizada na base! Favor validar. ", id);
+
+        await _repository.RemoverEmpresaAsync(id, cancellationToken);
+
+        await _logService.InserirLogAsync(new Log
+        {
+            EmpresaId = id,
+            Operacao = $"Removendo empresa {id} da base de dados.",
+            Usuario = usuario
+        }, cancellationToken);
+
+    }
+
+    public async Task AtualizarEmpresaAsync(AtualizaEmpresaDto dto, CancellationToken cancellationToken)
+    {
+        var verificaEmpresa = await _repository.ObterEmpresaPorIdAsync(dto.EmpresaId,cancellationToken);
+        if (verificaEmpresa == null)
+            throw new NotFoundException($"Empresa", dto.EmpresaId);     
+
+        await _repository.AtualizarEmpresaAsync(dto, cancellationToken);
+
+        await _logService.InserirLogAsync(new Log
+        {
+            EmpresaId = dto.EmpresaId,
+            Operacao = $"Empresa {dto.EmpresaId} atualizada na base de dados.",
+            Usuario = dto.Usuario
+        }, cancellationToken);
+    }
+    
 }

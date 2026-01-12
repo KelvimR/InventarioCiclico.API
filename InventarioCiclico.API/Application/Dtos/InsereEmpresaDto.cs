@@ -9,4 +9,5 @@ public class InsereEmpresaDto
     public string CGC { get; set; }
     public string Endereco { get; set; }
     public string Telefone { get; set; }
+    public string Usuario { get; set; }
 }

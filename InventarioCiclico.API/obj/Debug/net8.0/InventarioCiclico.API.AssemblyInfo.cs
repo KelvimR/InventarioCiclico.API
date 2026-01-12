@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InventarioCiclico.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f48a4bf803b07cb2a744d3a057447d55007280ec")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe55a0b790e9608e3e5118cd80bf1f6288cf6693")]
 [assembly: System.Reflection.AssemblyProductAttribute("InventarioCiclico.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InventarioCiclico.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
