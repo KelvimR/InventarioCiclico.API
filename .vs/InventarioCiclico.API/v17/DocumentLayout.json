@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|c:\\fontes\\projetos_kelvim\\inventariociclico.api\\inventariociclico.api\\controllers\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B4A35FC-91B4-4D54-A3DC-43C7322754A6}|InventarioCiclico.API\\InventarioCiclico.API.csproj|solutionrelative:inventariociclico.api\\controllers\\empresacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmpresaController.cs",
+              "DocumentMoniker": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\InventarioCiclico.API\\Controllers\\EmpresaController.cs",
+              "RelativeDocumentMoniker": "InventarioCiclico.API\\Controllers\\EmpresaController.cs",
+              "ToolTip": "C:\\Fontes\\Projetos_Kelvim\\InventarioCiclico.API\\InventarioCiclico.API\\Controllers\\EmpresaController.cs",
+              "RelativeToolTip": "InventarioCiclico.API\\Controllers\\EmpresaController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-13T14:37:15.895Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
