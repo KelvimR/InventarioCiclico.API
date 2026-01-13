@@ -21,10 +21,12 @@ public class AppDbContext : DbContext
        
         modelBuilder.Entity<Log>(entity =>
         {
+            entity.HasKey(e => e.Sequencia);
             entity.Property(e => e.Sequencia)
                 .HasColumnName("SEQUENCIA")
-                .ValueGeneratedNever();
-            
+                .ValueGeneratedOnAdd() // Indica que o valor é gerado no momento da adição
+                .HasDefaultValueSql("SEQ_PATRIMONIO_LOG.NEXTVAL"); // Usa a sequência Oracle
+
             entity.HasKey(e => e.Sequencia);
 
         });

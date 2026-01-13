@@ -15,12 +15,6 @@ public class LogRepository : ILogRepository
 
     public async Task InserirLogAsync(Log log, CancellationToken cancellationToken)
     {
-        var sequencia = await _context.Database
-            .SqlQueryRaw<long>("SELECT SEQ_PATRIMONIO_LOG.NEXTVAL FROM DUAL")
-            .SingleAsync(cancellationToken);
-
-        log.Sequencia = sequencia;
-
         _context.Log.Add(log);
         await _context.SaveChangesAsync(cancellationToken);
     }
