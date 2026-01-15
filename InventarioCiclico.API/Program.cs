@@ -49,6 +49,7 @@ builder.Services.AddScoped<EmpresaService>();
 builder.Services.AddScoped<ILogService, LogService>();
 builder.Services.AddScoped<IEmpresaRepository, EmpresaRepository>();
 builder.Services.AddScoped<ILogRepository, LogRepository>();
+builder.Services.AddScoped<ICadastroRepository, CadastroRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
