@@ -6,6 +6,97 @@
     "version": "1"
   },
   "paths": {
+    "/api/v1/Cadastro/{empresaId}": {
+      "get": {
+        "tags": [
+          "Cadastro"
+        ],
+        "summary": "Retorna os itens cadastrados de acordo com a empresa informada.",
+        "operationId": "ObterItensPorEmpresa",
+        "parameters": [
+          {
+            "name": "empresaId",
+            "in": "path",
+            "description": "ID da empresa a ser consultada.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/Cadastro/{numeroPatrimonial}": {
+      "get": {
+        "tags": [
+          "Cadastro"
+        ],
+        "summary": "Retorna os itens cadastrados de acordo com o numero patrimonial, os itens podem ter mais de uma incorporacao.",
+        "operationId": "ObterItensPorNumeroPatrimonial",
+        "parameters": [
+          {
+            "name": "numeroPatrimonial",
+            "in": "path",
+            "description": "ID da empresa a ser consultada.",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/empresas": {
       "get": {
         "tags": [

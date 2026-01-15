@@ -1,5 +1,69 @@
 [
   {
+    "ContainingType": "InventarioCiclico.API.Controllers.CadastroController",
+    "Method": "ObteItensPorEmpresa",
+    "RelativePath": "api/v1/Cadastro/{empresaId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empresaId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "ObterItensPorEmpresa"
+  },
+  {
+    "ContainingType": "InventarioCiclico.API.Controllers.CadastroController",
+    "Method": "ObterItensPorNumeroPatrimonial",
+    "RelativePath": "api/v1/Cadastro/{numeroPatrimonial}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "numeroPatrimonial",
+        "Type": "System.Decimal",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "Microsoft.AspNetCore.Mvc.ProblemDetails",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 404
+      }
+    ],
+    "EndpointName": "ObterItensPorNumeroPatrimonial"
+  },
+  {
     "ContainingType": "InventarioCiclico.API.Controllers.EmpresaController",
     "Method": "ListarEmpresas",
     "RelativePath": "api/v1/empresas",

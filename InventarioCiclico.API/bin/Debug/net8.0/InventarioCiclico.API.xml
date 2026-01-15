@@ -4,6 +4,22 @@
         <name>InventarioCiclico.API</name>
     </assembly>
     <members>
+        <member name="M:InventarioCiclico.API.Controllers.CadastroController.ObteItensPorEmpresa(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Retorna os itens cadastrados de acordo com a empresa informada.
+            </summary>
+            <returns>Retorna os itens encontrados para empresa ou 404 se não existir.</returns>
+            <param name="empresaId">ID da empresa a ser consultada.</param>
+            <param name="cancellationToken">Token para cancelamento da requisição.</param>
+        </member>
+        <member name="M:InventarioCiclico.API.Controllers.CadastroController.ObterItensPorNumeroPatrimonial(System.Decimal,System.Threading.CancellationToken)">
+            <summary>
+            Retorna os itens cadastrados de acordo com o numero patrimonial, os itens podem ter mais de uma incorporacao.
+            </summary>
+            <returns>Retorna os itens encontrados por numero patrimonial ou 404 se não existir.</returns>
+            <param name="numeroPatrimonial">ID da empresa a ser consultada.</param>
+            <param name="cancellationToken">Token para cancelamento da requisição.</param>
+        </member>
         <member name="M:InventarioCiclico.API.Controllers.EmpresaController.ListarEmpresas(System.Threading.CancellationToken)">
             <summary>
             Retorna a lista de empresas cadastradas.
