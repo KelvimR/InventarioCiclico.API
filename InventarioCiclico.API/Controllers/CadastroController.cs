@@ -42,21 +42,4 @@ public class CadastroController : Controller
         var cadastro = await _cadastroService.ObterCadastroPorNumeroPatrimonial(numeroPatrimonial, cancellationToken);
         return Ok(cadastro);
     }
-
-    //Teste SQL Injection
-    [HttpGet("teste")]
-    public IActionResult TesteInjecaoSQL(string input)
-    {
-        using (var connection = new SqlConnection("User Id=user;Password=password;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=service)));"))
-        {
-            connection.Open();
-
-            var query = "select * from usuarios where nome = '" + input + "'";
-            var command = new SqlCommand(query, connection);
-
-            var reader = command.ExecuteReader();
-
-            return Ok();
-        }
-    }
 }
