@@ -43,4 +43,10 @@ public class CadastroController : Controller
         return Ok(cadastro);
     }
 
+    
+    [HttpGet]
+    public string Test(string input)
+    {
+        return "SELECT * FROM users WHERE name = '" + input + "'";
+    }
 }
