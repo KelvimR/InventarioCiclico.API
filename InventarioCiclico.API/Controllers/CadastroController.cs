@@ -44,9 +44,11 @@ public class CadastroController : Controller
     }
 
     
-    [HttpGet]
-    public string Test(string input)
+    
+    [HttpGet("teste")]
+    public string TesteInjecao(string input)
     {
-        return "SELECT * FROM users WHERE name = '" + input + "'";
+        var query = "select * from usuarios where nome = '" + input + "'";
+        return query;
     }
 }
